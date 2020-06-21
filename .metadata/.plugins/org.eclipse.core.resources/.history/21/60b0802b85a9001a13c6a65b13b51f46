@@ -1,0 +1,38 @@
+package com.nikhil.taco.jdbc.repositories.template;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.nikhil.taco.jdbc.repositories.interfaces.IngredientRepocitories;
+import com.nikhil.taco.model.Ingredient;
+
+@Repository
+public class JdbcIngredientRepository implements IngredientRepocitories {
+	
+	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	public JdbcIngredientRepository(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate=jdbcTemplate;
+	}
+
+	@Override
+	public Iterable<Ingredient> findAll() {
+		return jdbcTemplate.query(psc, rowMapper)
+	}
+
+	@Override
+	public Ingredient save(Ingredient ingredient) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Ingredient findOne(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

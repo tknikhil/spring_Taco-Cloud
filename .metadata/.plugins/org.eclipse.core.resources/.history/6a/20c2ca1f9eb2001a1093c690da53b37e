@@ -1,0 +1,5 @@
+package com.nikhil.tacoclod.controller;
+
+public class IngredientIdConverter {
+
+}

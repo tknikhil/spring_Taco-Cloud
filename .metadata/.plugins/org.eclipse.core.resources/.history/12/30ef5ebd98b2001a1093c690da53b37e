@@ -1,0 +1,5 @@
+package com.nikhil.tacoclod.jpa.repositories.interfaces;
+
+public interface IngredientRepository {
+
+}
