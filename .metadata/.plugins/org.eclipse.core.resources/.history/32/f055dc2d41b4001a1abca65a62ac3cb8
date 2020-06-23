@@ -23,9 +23,8 @@ import lombok.Data;
 public class Taco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//Generation.AUTO will search for hibernate_sequence so use Generation.IDENTITY
-	@Column(name="id")
 	private Long id;
-	@Column(name="createdat")
+	@Column
 	private Date createdAt;
 	@NotNull
 	@Size(min = 5,message = "Name must be 5 character long")

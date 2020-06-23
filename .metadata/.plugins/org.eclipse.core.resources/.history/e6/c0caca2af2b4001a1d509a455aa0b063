@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,44 +25,34 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="taco_order")
+@Table(name="Taco_Order")
 public class Order  implements Serializable{
 	
 	private static final long serialVersionUID=1L;
 	
 	@Id
 	@GeneratedValue(strategy =GenerationType.AUTO)
-	@Column(name="id")
 	private Long id;
-	@Column(name = "placedat")
 	private Date placedAt;
-	@Column(name="name")
 	@NotBlank(message = "Name is required")
 	private String name;
-	@Column(name="street")
 	@NotBlank(message = "Street is required")
 	private String street;
-	@Column(name="city")
 	@NotBlank(message = "City is required")
 	private String city;
-	@Column(name = "state")
 	@NotBlank(message = "state is required")
 	private String state;
-	@Column(name="zip")
 	@NotBlank(message = "Zip code is required")
 	private String zip;
-	@Column(name="ccnumber")
 	@CreditCardNumber(message = "Not Valid credit card number")
 	private String ccNumber;
-	@Column(name = "ccexpiration")
 	@Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$",
 			message="Must be formatted MM/YY")
 	private String ccExpiration;
-	@Column(name = "cccvv")
 	@Digits(integer = 3,fraction = 0,message = "Invalid CVV")
 	private String ccCVV;
 	
-	@ManyToMany(targetEntity = Taco.class)	//JPA
+	@ManyToMany(targetEntity = Taco.class)								//JPA
 	private List <Taco> taco=new ArrayList<>();
 	
 	public void addDesign(Taco saved) {

@@ -32,6 +32,7 @@ public class Taco {
 	private String name;
 	@ManyToMany(targetEntity = Ingredient.class)							//JPA
 	@Size(min=1,message = "Choose at least 1 Ingredient")
+	@Column(name="ingrident")
 	private List<Ingredient> ingredients=new ArrayList<Ingredient>();					// for Jdbc convert List<Ingredient> to List<String>
 	
 	@PrePersist

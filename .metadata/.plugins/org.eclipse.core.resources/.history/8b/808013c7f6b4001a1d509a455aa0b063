@@ -46,7 +46,7 @@ public class OrderController {
 		return "order";
 	}
 
-	@PostMapping
+	@PostMapping()
 	public String processOrder(@Valid @ModelAttribute("order") Order order, Errors errors,
 			SessionStatus sessionStatus) {
 		if (errors.hasErrors()) {

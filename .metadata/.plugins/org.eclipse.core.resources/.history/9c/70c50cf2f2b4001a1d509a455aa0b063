@@ -26,14 +26,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="taco_order")
+@Table(name="Taco_Order")
 public class Order  implements Serializable{
 	
 	private static final long serialVersionUID=1L;
 	
 	@Id
 	@GeneratedValue(strategy =GenerationType.AUTO)
-	@Column(name="id")
 	private Long id;
 	@Column(name = "placedat")
 	private Date placedAt;
@@ -63,7 +62,7 @@ public class Order  implements Serializable{
 	@Digits(integer = 3,fraction = 0,message = "Invalid CVV")
 	private String ccCVV;
 	
-	@ManyToMany(targetEntity = Taco.class)	//JPA
+	@ManyToMany(targetEntity = Taco.class)								//JPA
 	private List <Taco> taco=new ArrayList<>();
 	
 	public void addDesign(Taco saved) {
