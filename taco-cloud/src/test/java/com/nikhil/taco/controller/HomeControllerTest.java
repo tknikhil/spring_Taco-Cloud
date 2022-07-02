@@ -21,6 +21,7 @@ public class HomeControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
 
+        
 	@Test
 	private void testHomePage() throws Exception {
 		mockMvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("home"))
